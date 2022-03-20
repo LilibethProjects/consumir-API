@@ -124,5 +124,8 @@
       }
     }
   },
-  "defaultProject": "frontendQuasar"
+  "defaultProject": "frontendQuasar",
+  "cli": {
+    "analytics": "c94f85cb-3173-4bfb-8ece-ef740a5e5886"
+  }
 }
