@@ -1,13 +1,11 @@
-import { HttpClient, HttpErrorResponse} from '@angular/common/http';
+import { HttpClient} from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import {Observable, throwError} from 'rxjs';
-import {catchError, map} from 'rxjs/operators';
+import {Observable} from 'rxjs';
+import {map} from 'rxjs/operators';
 import { LoginInterface} from '../../models/login.interface';
 import { ResponseInterface } from '../../models/responsive.interface';
-import { ResponseRequest } from '../../models/usersRegisters.interface';
 import { User } from '../../models/user';
-import { UserR } from 'src/app/models/userR';
-import { TrackHttpError } from '../../models/trackHttpError';
+import { ResponseRequest } from '../../models/usersRegisters.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -19,36 +17,24 @@ export class ApiService {
   public urlUsers = this.urlUser + 'users';
 
   constructor(private http: HttpClient) { }
-
+  // Iniciar sesion
   public loginUser(form: LoginInterface): Observable<ResponseInterface> {
     const urlApi = this.url + 'api/login';
     return this.http.post<ResponseInterface>(urlApi, form);
 
   }
-
+ // Mostrar todos los usuarios llamada a la api
   public getAllUsersRegister() {
-    const url = this.url + 'api/users';
+    const url = this.urlUsers;
     return this.http.get<ResponseRequest>(url)
     .pipe(
-      map( resp => {
-          return resp.data.map( user => User.userApi(user))
-          })
-    )
+      map( (resp) => {
+          return resp.data.map( (user) => User.userApi(user));
+          }),
+    );
   }
-
-  getUser(userId: string): Observable<UserR> {
-    const url = this.urlUsers + userId;
-    return this.http.get<UserR>(url);
-
-  }
-
-  getDetails(id: number) {
-    const url = this.urlUsers;
-
-    return this.http.get<UserR>(`${url}/${id}`);
-  }
-
-  getById(id){
+  //Mostrar un usuario llamada a la api
+  public getById(id) {
     return this.http.get( this.urlUser + 'users/' + id);
   }
  }

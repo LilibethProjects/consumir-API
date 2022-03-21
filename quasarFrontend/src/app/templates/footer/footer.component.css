@@ -1,0 +1,10 @@
+.footer{
+  background: linear-gradient(to bottom, #68d8d6, #ffffff);
+  text-decoration: black;
+  font-family: cursive;
+  position:fixed;
+  left:0px;
+  bottom:10px;
+  width:100%;
+
+}

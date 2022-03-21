@@ -1,8 +1,18 @@
 h1{
   text-align: center;
-  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-family: cursive;
   font-weight: bold;
 }
-nav-bar{
+.navbar{
   background: linear-gradient(to bottom, #68d8d6, #ffffff);
+}
+.header{
+  text-align: center;
+}
+span{
+  text-align: center;
+  position: relative;
+  left: 500px;
+  font-family: cursive;
+  font-size: 30px;
 }

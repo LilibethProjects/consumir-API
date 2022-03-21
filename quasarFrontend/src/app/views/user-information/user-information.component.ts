@@ -1,12 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import {FormControl, FormGroup} from '@angular/forms';
-import { ActivatedRoute, Route, Router } from '@angular/router';
+import { ActivatedRoute} from '@angular/router';
 import { Observable } from 'rxjs';
-import { User } from 'src/app/models/user';
-import { UserRegisterList } from 'src/app/models/usersRegisters.interface';
-import { ApiService } from '../../services/api/api.service';
 import { UserR } from '../../models/userR';
-import { take } from 'rxjs/operators';
+import { ApiService } from '../../services/api/api.service';
 
 
 @Component({
@@ -17,9 +13,8 @@ import { take } from 'rxjs/operators';
 export class UserInformationComponent implements OnInit {
 
   public userDatoLista$: Observable<UserR> ;
- user =[];
-  constructor(
-              private activate: ActivatedRoute, private api: ApiService) { }
+  user = [];
+  constructor(private activate: ActivatedRoute, private api: ApiService) { }
 
   public ngOnInit(): void {
 
@@ -30,9 +25,10 @@ export class UserInformationComponent implements OnInit {
     });
 
   }
-  getDetail(id) {
-    this.api.getById(id).subscribe((data: any) => {
-      this.user = data.data;
-    });
+  // Llamar para ver un usuario
+    getDetail(id) {
+      this.api.getById(id).subscribe((data: any) => {
+        this.user = data.data;
+      });
+    }
   }
-}

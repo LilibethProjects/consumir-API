@@ -1,6 +1,17 @@
 th{
   color: black;
+  font-family: cursive;
+}
+td{
+  font-family: cursive;
+  font-size: 25px;
 }
 .container-fluid{
   max-width: 1000px;
+}
+.btn{
+  background: linear-gradient(to bottom, #68d8d6, #ffffff);
+  border: 2px solid black;
+  color: black;
+  font-family: cursive;
 }
